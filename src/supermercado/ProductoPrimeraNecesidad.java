@@ -2,11 +2,14 @@ package supermercado;
 
 public class ProductoPrimeraNecesidad extends Producto{
 	
-	public ProductoPrimeraNecesidad(String name, double price, boolean esPreciosCuidados) {
+	private double descuento;
+	
+	public ProductoPrimeraNecesidad(String name, double price, boolean esPreciosCuidados, double descuento) {
 		super(name, price, esPreciosCuidados);
+		this.descuento = descuento;
 	}
 	
 	public double calcularPrecio() {
-		return this.getPrice() * 0.9;
+		return this.getPrice() - (this.getPrice() * (descuento  /100));
 	}
 }
